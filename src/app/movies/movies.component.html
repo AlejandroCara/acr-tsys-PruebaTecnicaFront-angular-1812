@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        @for (movie of movies; track $index) {
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ movie.title }}</h5>
+                    <a  class="btn btn-warning d-flex justify-content-center" routerLink="/movie/{{movie.id}}">See more</a>
+                </div>
+            </div>
+        } @empty {
+            
+        }
+    </div>
+</div>

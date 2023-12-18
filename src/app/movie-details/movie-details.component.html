@@ -1,0 +1,11 @@
+<div class="container">
+    <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="...">
+    <h2>{{movie.title}}</h2>
+    <p>Original title: {{movie.original_title}}</p>
+    <p>Overview: {{movie.overview}}</p>
+    <p>Genres: |
+    @for (genre of movie.genres; track $index) {
+        {{genre.name}} |
+    }
+    </p>
+</div> 

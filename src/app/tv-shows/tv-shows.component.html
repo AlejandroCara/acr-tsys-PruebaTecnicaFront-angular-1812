@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        @for (tvShows of tvShows; track $index) {
+            <div class="card">
+                <img src="https://image.tmdb.org/t/p/w500{{tvShows.poster_path}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ tvShows.name }}</h5>
+                    <a  class="btn btn-warning d-flex justify-content-center" routerLink="/tv-show/{{tvShows.id}}">See more</a>
+                </div>
+            </div>
+        } @empty {
+            
+        }
+    </div>
+</div>
