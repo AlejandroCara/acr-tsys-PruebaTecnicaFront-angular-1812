@@ -29,4 +29,30 @@ export class TvShowsComponent {
       }
     );
   }
+
+  onSearchClick = (e:Event): void => {
+    let title = (<HTMLInputElement>document.getElementById('tvShowSearchBar')).value;
+    if (title != "") {
+      title = title.replace(' ', '+');
+      this.tvShowService.getByTitle(title).subscribe(
+        result => {
+          this.tvShows = result.results;
+        },
+        error => {
+          
+        }
+      );
+    } else {
+      this.tvShowService.getAllTvShows().subscribe(
+        result => {
+          this.tvShows = result.results;
+          console.log(result.results)
+        },
+        error => {
+          console.log("ERR")
+        }
+      );
+    }
+    
+  }
 }

@@ -1,8 +1,20 @@
 <div class="container">
+    <div class="container col-10 d-flex gap-4" id="searchContainer">
+        <div class="row col-1">
+            <button class="btn btn-outline-success" type="submit" (click)="onSearchClick($event)">Search</button>
+        </div>
+        <div class="row col-4">
+            <input class="form-control bg-light" type="search" placeholder="Search" aria-label="Search" id="movieSearchBar">
+        </div>
+    </div>
     <div class="row d-flex justify-content-center">
         @for (movie of movies; track $index) {
             <div class="card">
-                <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="...">
+                @if (movie.poster_path != null) {
+                    <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" class="card-img-top" alt="...">
+                } @else {
+                    <img src="https://t1.gstatic.com/licensed-image?q=tbn:ANd9GcR0NrOJEpfjkM0zxD-aO9b-bWqW3mhY57jPMg3aSbxTYO__R4jOvx8T2Oa7Fm9yxXOGg4B_ns3SZaZGCiBOPQw" class="card-img-top" alt="...">
+                }
                 <div class="card-body">
                     <h5 class="card-title">{{ movie.title }}</h5>
                     <a  class="btn btn-warning d-flex justify-content-center" routerLink="/movie/{{movie.id}}">See more</a>

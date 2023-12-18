@@ -29,4 +29,17 @@ export class MoviesComponent implements OnInit{
     );
   }
 
+  onSearchClick = (e:Event): void => {
+    let title = (<HTMLInputElement>document.getElementById('movieSearchBar')).value;
+    title = title.replace(' ', '+');
+    this.movieService.getByTitle(title).subscribe(
+      result => {
+        this.movies = result.results;
+        console.log(this.movies)
+      },
+      error => {
+        
+      }
+    );
+  }
 }

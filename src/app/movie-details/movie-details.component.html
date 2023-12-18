@@ -3,9 +3,12 @@
     <h2>{{movie.title}}</h2>
     <p>Original title: {{movie.original_title}}</p>
     <p>Overview: {{movie.overview}}</p>
+    <p>Release date: {{movie.release_date}}</p>
     <p>Genres: |
     @for (genre of movie.genres; track $index) {
         {{genre.name}} |
     }
     </p>
+    <p>Votes: {{movie.vote_count}}</p>
+    <p>Vote average: {{movie.vote_average}}</p>
 </div> 
